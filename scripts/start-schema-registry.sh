@@ -1,0 +1,1 @@
+/Users/pervage/Documents/kafka/bin/schema-registry-start /Users/pervage/Documents/kafka/etc/schema-registry/schema-registry.properties

@@ -1,0 +1,1 @@
+/Users/pervage/Documents/kafka/bin/zookeeper-server-start /Users/pervage/Documents/kafka/etc/kafka/zookeeper.properties
