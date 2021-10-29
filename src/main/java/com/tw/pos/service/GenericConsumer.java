@@ -1,13 +1,12 @@
 package com.tw.pos.service;
 
+import com.tw.pos.AppConfigs;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
-import kafka.AppConfigs;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
-
 import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
