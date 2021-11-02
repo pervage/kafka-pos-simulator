@@ -27,7 +27,7 @@
     <build>
         <plugins>
             <!-- Json Schema to POJO plugin-->
-            <plugin>
+            <!--plugin>
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
                 <version>0.5.1</version>
@@ -37,14 +37,14 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/schema/</sourceDirectory>
+                            <sourceDirectory>${project.basedir}/src/main/resources/schemas/</sourceDirectory>
                             <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
                             <includeAdditionalProperties>false</includeAdditionalProperties>
                             <includeHashcodeAndEquals>false</includeHashcodeAndEquals>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin-->
             <!-- Maven Avro plugin for generating pojo-->
             <plugin>
                 <groupId>org.apache.avro</groupId>
