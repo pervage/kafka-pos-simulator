@@ -1,4 +1,4 @@
 package com.tw.pos.service;
 
-public class GenericProducer {
+public class GenericProducer<T> {
 }

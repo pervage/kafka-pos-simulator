@@ -15,7 +15,9 @@ public class PosValidator {
         GenericConsumer<PosInvoice> consumer = new GenericConsumer<>(AppConfigs.sourceTopicName);
         while (true) {
             ConsumerRecords<String, PosInvoice> records = consumer.poll();
+            System.out.println(records.count());
             for (ConsumerRecord<String, PosInvoice> record : records) {
+                System.out.println(record.value());
                 if (record.value().getDeliveryType().equals("HOME-DELIVERY") &&
                     record.value().getDeliveryAddress().getContactNumber().equals("")) {
                     //Invalid
