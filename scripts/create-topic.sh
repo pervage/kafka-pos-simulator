@@ -1,1 +1,2 @@
+/Users/pervage/Documents/kafka/bin/kafka-topics --delete --topic pos --zookeeper localhost:2181
 /Users/pervage/Documents/kafka/bin/kafka-topics --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic pos

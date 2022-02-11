@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class InvoiceGenerator {
     private static final Logger logger = LogManager.getLogger();
-    private static InvoiceGenerator ourInstance = new InvoiceGenerator();
+    private static final InvoiceGenerator ourInstance = new InvoiceGenerator();
     private final Random invoiceIndex;
     private final Random invoiceNumber;
     private final Random numberOfItems;
@@ -39,7 +39,7 @@ public class InvoiceGenerator {
     }
 
     private int getIndex() {
-        return invoiceIndex.nextInt(100);
+        return invoiceIndex.nextInt(20);
     }
 
     private int getNewInvoiceNumber() {
@@ -59,7 +59,7 @@ public class InvoiceGenerator {
             invoice.setDeliveryAddress(deliveryAddress);
         }
         int itemCount = getNoOfItems();
-        Double totalAmount = 0.0;
+        double totalAmount = 0.0;
         List<LineItem> items = new ArrayList<>();
         ProductGenerator productGenerator = ProductGenerator.getInstance();
         for (int i = 0; i < itemCount; i++) {

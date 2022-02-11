@@ -34,6 +34,7 @@ public class GenericConsumer<T> {
     }
 
     public ConsumerRecords<String, T> poll(){
+        kafkaConsumer.commitSync();
         return kafkaConsumer.poll(Duration.ofSeconds(3));
     }
 
