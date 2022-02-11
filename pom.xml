@@ -24,10 +24,9 @@
         </repository>
     </repositories>
 
-    <build>
+    <!--build>
         <plugins>
-            <!-- Json Schema to POJO plugin-->
-            <!--plugin>
+            <plugin>
                 <groupId>org.jsonschema2pojo</groupId>
                 <artifactId>jsonschema2pojo-maven-plugin</artifactId>
                 <version>0.5.1</version>
@@ -44,8 +43,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin-->
-            <!-- Maven Avro plugin for generating pojo-->
+            </plugin>
             <plugin>
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro-maven-plugin</artifactId>
@@ -68,7 +66,7 @@
                 </executions>
             </plugin>
         </plugins>
-    </build>
+    </build -->
 
     <dependencies>
         <!-- Confluent Kafka Avro Serializer-->
