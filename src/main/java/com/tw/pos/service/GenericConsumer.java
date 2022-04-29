@@ -3,6 +3,7 @@ package com.tw.pos.service;
 import com.tw.pos.AppConfigs;
 import io.confluent.kafka.serializers.KafkaAvroDeserializer;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -12,9 +13,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GenericConsumer<T> {
+@Slf4j
+public class GenericConsumer<V> {
 
-    private KafkaConsumer<String, T> kafkaConsumer;
+    private KafkaConsumer<String, V> kafkaConsumer;
 
     public GenericConsumer(String topicName){
         kafkaConsumer = new KafkaConsumer<>(consumerConfigs());
@@ -29,13 +31,20 @@ public class GenericConsumer<T> {
         consumerProps.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG,true);
         consumerProps.put(ConsumerConfig.GROUP_ID_CONFIG, AppConfigs.groupID);
         consumerProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-
+        consumerProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         return consumerProps;
     }
 
-    public ConsumerRecords<String, T> poll(){
-        kafkaConsumer.commitSync();
+    public ConsumerRecords<String, V> poll(){
         return kafkaConsumer.poll(Duration.ofSeconds(3));
+    }
+
+    public void commitOffsets(){
+        try {
+            kafkaConsumer.commitSync();
+        }catch (Exception e){
+            log.info("Exception in committing result" +e);
+        }
     }
 
 }

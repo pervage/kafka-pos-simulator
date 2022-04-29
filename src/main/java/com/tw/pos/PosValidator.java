@@ -34,13 +34,14 @@ public class PosValidator {
                             .invoiceNumber(record.value().getInvoiceNumber().toString())
                             .status("FAIL")
                             .build().toString());
+                    consumer.commitOffsets();
                 } else {
                     logger.info("valid record - " + record.value().getInvoiceNumber());
                     System.out.println("valid record - " + record.value().getInvoiceNumber());
                     kafkaOutputs.add(KafkaOutput.builder()
                             .invoiceNumber(record.value().getInvoiceNumber().toString())
                             .status("PASS")
-                            .build().toString());;
+                            .build().toString());
                 }
             }
         }
